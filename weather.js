@@ -1502,9 +1502,37 @@ function findRain(conditions) {
 
 //q2
 function findRain(conditions) {
+  var hasRain = false; 
   var newArr = conditions.hourly.data.slice(0,7);
   newArr.forEach(function(hour) {
       if(hour.precipType === 'rain') hasRain = true;
     });
   return hasRain;
+}
+
+//q3
+function getTemperature(conditions) {
+    var newTemp = [];
+    var hourly = conditions.hourly.data;
+    hourly.forEach(function(hour) {
+        newTemp.push(hour.temperature);
+    });
+    return newTemp;
+}
+
+//q4
+function whenRain(conditions) {
+    var rainyDays = [];
+    var daily = conditions.daily.data;
+    daily.forEach(function(day){
+       rainyDays.push(day); 
+    });
+         var buildObject = rainyDays.reduce(function(obj, day){
+       if (!obj[day.time]){
+             obj[day.time] = day;
+       } 
+       return obj;
+    
+     }, {}); 
+     return buildObject;
 }
