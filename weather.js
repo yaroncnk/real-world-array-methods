@@ -1489,12 +1489,22 @@ var conditions = {
     "timezone": "America/Montreal"
 }
 
+//q1
 function findRain(conditions) {
   var hasRain = false;
   var newArr = conditions.hourly.data.slice(0,23);
   newArr.forEach(function(hour) {
       if(hour.precipType === 'rain') 
       var hasRain = true;
+    });
+  return hasRain;
+}
+
+//q2
+function findRain(conditions) {
+  var newArr = conditions.hourly.data.slice(0,7);
+  newArr.forEach(function(hour) {
+      if(hour.precipType === 'rain') hasRain = true;
     });
   return hasRain;
 }
