@@ -1550,3 +1550,15 @@ function isItSunny(conditions) {
   return sum ;
 }
 
+//q6 what will be the hottest temperature today? (Temperature in degrees C)
+
+function hottestTemperature(conditions) {
+    var hottestValue = 0;
+    var hourly = conditions.hourly.data.slice(0,23);
+    hourly.forEach(function(hour) {
+        if(hour.temperature > hottestValue) {
+            hottestValue = (hour.temperature-32)*5/9;
+        }
+    });
+    return hottestValue;
+}
