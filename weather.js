@@ -1562,3 +1562,18 @@ function hottestTemperature(conditions) {
     });
     return hottestValue;
 }
+
+//q7 - counting icons and building an object for them!
+function iconCount(conditions) {
+    var daily = conditions.daily.data;
+    var buildObject = daily.reduce(function(obj, day){
+       if (!obj[day.icon]){
+             obj[day.icon] = 1 ;
+       } else {
+         obj[day.icon] = obj[day.icon] + 1; 
+       } 
+       return obj;
+    
+     }, {}); 
+     return buildObject;
+}
