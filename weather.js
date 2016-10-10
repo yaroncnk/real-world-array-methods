@@ -1536,3 +1536,17 @@ function whenRain(conditions) {
      }, {}); 
      return buildObject;
 }
+
+//q5 will it be sunny on every day?
+
+function isItSunny(conditions) {
+    var daily = conditions.daily.data;
+  var sum = 0;
+     daily.forEach(function(hour) {
+      var n = hour.summary.search("sun");
+      if(n > 0) {
+        sum = sum+1; }
+    });
+  return sum ;
+}
+
